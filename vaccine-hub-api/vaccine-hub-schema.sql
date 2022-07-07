@@ -1,8 +1,9 @@
-CREATE TABLE users(
+CREATE TABLE "users" (
     id          SERIAL PRIMARY KEY,
+   first_name  TEXT NOT NULL,
+   last_name    TEXT NOT NULL,
    password     TEXT NOT NULL,
    email        TEXT NOT NULL UNIQUE CHECK (POSITION('@' IN email) > 1),
-   rvsp_status  BOOLEAN NOT NULL,
-   num_guests   INTEGER NOT NULL,
-   created_at   TIMESTAMP NOT NULL DEFAULT NOW()
+   location     TEXT NOT NULL,
+   date   TIMESTAMP NOT NULL DEFAULT NOW()
 );
