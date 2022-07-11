@@ -18,6 +18,7 @@ function getDatabaseUri() {
     `postgresql://${dbUser}@${dbHost}:${dbPort}/${dbName}`
   );
 }
+const BCRYPT_WORK_FACTOR = 13;
 
 // console.log("process.env".yellow, Object.keys(process.env));
 console.log("Vaccine Hub Config:".red);
@@ -28,4 +29,5 @@ console.log("---");
 module.exports = {
   PORT,
   getDatabaseUri,
+  BCRYPT_WORK_FACTOR,
 };

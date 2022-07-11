@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-  const message = err.message;
+  const message = err.message || "something went wrong";
 
   return res.status(status).json({
     error: { message, status },
@@ -32,5 +32,5 @@ app.use((err, req, res, next) => {
 // const POST = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(` Server running http://localhost:$(PORT)`);
+  console.log(` 🚀 Server running http://localhost:$(PORT)`);
 });
