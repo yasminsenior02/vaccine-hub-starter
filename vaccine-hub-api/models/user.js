@@ -59,7 +59,7 @@ class User {
 
     const result = await db.query(
       `
-    INSERT INTO users (
+    INSERT INTO "users" (
       first_name, last_name, password, email, location
     )
     VALUES ($1, $2, $3, $4, $5)
@@ -83,7 +83,7 @@ class User {
       throw new BadRequestError("No email provided");
     }
     console.log(email);
-    const query = "SELECT * FROM users WHERE email = $1;";
+    const query = `SELECT * FROM "users" WHERE email = $1;`;
     const result = await db.query(query, [email.toLowerCase()]);
     // const result = await db.query("SELECT * FROM users WHERE email = $1;");
 
